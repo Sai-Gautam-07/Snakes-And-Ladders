@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Snake & Ladders</title>
+  <style>
+
+    body{
+      text-align: center;
+      background-color: purple;
+      background-image: url("images/background1.png");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Press Start 2P', cursive;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(10, 50px);
+      grid-template-rows: repeat(10, 50px);
+      gap: 0px;
+      border: 10px solid black;
+      margin: 0 auto;
+      width: fit-content;
+    }
+    .white{
+      background-color: #3679c5;
+    }
+    .black{
+      background-color: #cac5c1;
+    }
+    #btn1 {
+      margin: 25px;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      border: 10px solid black;
+      border-radius: 20%;
+      background-image: url("images/dice6.png");
+      background-size: 100% 100%;
+    }
+    #btn2 {
+      margin: 25px;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      border: 10px solid black;
+      border-radius: 20%;
+      background-image: url("images/dice6.png");
+      background-size: 100% 100%;
+    }
+    .pawn1{
+      background-image: url("images/pawn1.png");
+      background-size: 100% 100%;
+    }
+    .pawn2{
+      background-image: url("images/pawn2.png");
+      background-size: 100% 100%;
+    }
+    button{
+      background-color: red;
+      border: none;
+      color: white;
+      padding: 5px;
+      padding-top: 5px;
+      padding-bottom: 0px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      border-radius: 10px;
+    }
+
+    .snake {
+      background-image: url('images/snake1.png');
+      position: absolute;  
+      width: 50px;    
+      height: 50px;    
+      background-size: cover; 
+      display: none;   
+      z-index: 10;
+    }
+
+    .ladder {
+      background-image: url('images/ladder1.png');
+      position: absolute; 
+      width: 50px; 
+      height: 50px; 
+      background-size: cover;
+      display: none;  
+      z-index: 10;     
+}
+  </style>
+</head>
+
+<body>
+  <h1>Snake And Ladders..🐍🪜</h1>
+  <h2>Roll The Dice To Play...<button onclick='playAgain()'>Play Again..</button></h2>
+  <div class="container">
+    <div class="div100 white">100</div>
+    <div class="div99 black">99</div>
+    <div class="div98 white">98</div>
+    <div class="div97 black">97</div>
+    <div class="div96 white">96</div>
+    <div class="div95 black">95</div>
+    <div class="div94 white">94</div>
+    <div class="div93 black">93</div>
+    <div class="div92 white">92</div>
+    <div class="div91 black">91</div> 
+    <div class="div81 black">81</div>
+    <div class="div82 white">82</div>
+    <div class="div83 black">83</div>        
+    <div class="div84 white">84</div>
+    <div class="div85 black">85</div>
+    <div class="div86 white">86</div>
+    <div class="div87 black">87</div>
+    <div class="div88 white">88</div>
+    <div class="div89 black">89</div>
+    <div class="div90 white">90</div>
+    <div class="div80 white">80</div>
+    <div class="div79 black">79</div>         
+    <div class="div78 white">78</div>
+    <div class="div77 black">77</div>
+    <div class="div76 white">76</div>
+    <div class="div75 black">75</div>
+    <div class="div74 white">74</div>
+    <div class="div73 black">73</div>
+    <div class="div72 white">72</div>
+    <div class="div71 black">71</div>
+    <div class="div61 black">61</div>
+    <div class="div62 white">62</div>
+    <div class="div63 black">63</div>
+    <div class="div64 white">64</div>
+    <div class="div65 black">65</div>
+    <div class="div66 white">66</div>
+    <div class="div67 black">67</div>
+    <div class="div68 white">68</div>
+    <div class="div69 black">69</div>
+    <div class="div70 white">70</div>
+    <div class="div60 white">60</div>        
+    <div class="div59 black">59</div>
+    <div class="div58 white">58</div>
+    <div class="div57 black">57</div>
+    <div class="div56 white">56</div>
+    <div class="div55 black">55</div>
+    <div class="div54 white">54</div>          
+    <div class="div53 black">53</div>
+    <div class="div52 white">52</div>
+    <div class="div51 black">51</div>
+    <div class="div41 black">41</div>
+    <div class="div42 white">42</div>
+    <div class="div43 black">43</div>
+    <div class="div44 white">44</div>
+    <div class="div45 black">45</div>
+    <div class="div46 white">46</div>
+    <div class="div47 black">47</div>
+    <div class="div48 white">48</div>
+    <div class="div49 black">49</div>
+    <div class="div50 white">50</div>
+    <div class="div40 white">40</div>
+    <div class="div39 black">39</div>      
+    <div class="div38 white">38</div>
+    <div class="div37 black">37</div>
+    <div class="div36 white">36</div>
+    <div class="div35 black">35</div>
+    <div class="div34 white">34</div>
+    <div class="div33 black">33</div>
+    <div class="div32 white">32</div>
+    <div class="div31 black">31</div>
+    <div class="div21 black">21</div>         
+    <div class="div22 white">22</div>
+    <div class="div23 black">23</div>
+    <div class="div24 white">24</div>
+    <div class="div25 black">25</div>
+    <div class="div26 white">26</div>
+    <div class="div27 black">27</div>
+    <div class="div28 white">28</div>
+    <div class="div29 black">29</div>
+    <div class="div30 white">30</div>
+    <div class="div20 white">20</div>         
+    <div class="div19 black">19</div>
+    <div class="div18 white">18</div>
+    <div class="div17 black">17</div>
+    <div class="div16 white">16</div>        
+    <div class="div15 black">15</div>
+    <div class="div14 white">14</div>
+    <div class="div13 black">13</div>
+    <div class="div12 white">12</div>
+    <div class="div11 black">11</div>
+    <div class="div1 pawn1 pawn2 black">1</div>
+    <div class="div2 white">2</div>
+    <div class="div3 black">3</div>
+    <div class="div4 white">4</div>
+    <div class="div5 black">5</div>
+    <div class="div6 white">6</div>
+    <div class="div7 black">7</div>
+    <div class="div8 white">8</div>
+    <div class="div9 black">9</div>
+    <div class="div10 white">10</div>
+  </div>
+  <div class="snake"></div>
+  <div class="ladder"></div>
+
+  <div type="button" id="btn1" class="button"></div>
+  <div type="button" id="btn2" class="button"></div>
+  
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="index.js" charset="utf-8"></script>
+</body>
+
+</html>
